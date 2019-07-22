@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 // import SERVER_URL from './constants/server';
 // import Nav from './layout/Nav';
-import './App.css';
+import '../css/App.css';
 
 import Header from "./modules/header.js";
 import Main from "./modules/main.js";

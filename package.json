@@ -5,8 +5,13 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
+=======
+    "react-scripts": "3.0.1",
+    "superagent": "^5.1.0"
+>>>>>>> 5fb942bd25b247baa0f257ad91d1ab535f8133f7
   },
   "scripts": {
     "start": "react-scripts start",
