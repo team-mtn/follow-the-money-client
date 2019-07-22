@@ -18,8 +18,8 @@ class Main extends React.Component {
     return(
       <React.Fragment>
         <Route exact path="/" component={Home} />
-        <Route path="/search-by-candidate" component={CandidateSearch.js} />
-        <Route path="/search-by-election" component={Election.js} />
+        <Route path="/search-by-candidate" component={CandidateSearch} />
+        <Route path="/search-by-election" component={Election} />
         <Route path="/about" component={About} />
       </React.Fragment>
     );
