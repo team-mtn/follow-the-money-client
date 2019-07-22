@@ -1,17 +1,12 @@
 {
-  "name": "follow-the-money",
+  "name": "test-me",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-<<<<<<< HEAD
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
-=======
-    "react-scripts": "3.0.1",
-    "superagent": "^5.1.0"
->>>>>>> 5fb942bd25b247baa0f257ad91d1ab535f8133f7
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +28,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "## Live link:",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-mtn/follow-the-money-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/team-mtn/follow-the-money-client/issues"
+  },
+  "homepage": "https://github.com/team-mtn/follow-the-money-client#readme"
 }

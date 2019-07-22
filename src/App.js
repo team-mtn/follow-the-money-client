@@ -1,8 +1,8 @@
 import React from 'react';
+import './css/App.css';
+
 import { BrowserRouter } from "react-router-dom";
-// import SERVER_URL from './constants/server';
-// import Nav from './layout/Nav';
-import '../css/App.css';
+// import SERVER_URL from './constants/server'; 
 
 import Header from "./modules/header.js";
 import Main from "./modules/main.js";
