@@ -10,10 +10,10 @@ class Header extends React.Component {
 
   render() {
     return(
-      <Header>
-        <nav></nav>
+      <header>
+        <nav>Nav</nav>
         <img src=""/>
-      </Header>
+      </header>
     );
   }
 }
