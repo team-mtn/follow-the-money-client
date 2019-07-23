@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import "../css/home.css";
-
 
 class Home extends React.Component {
   constructor(props){
@@ -19,12 +17,12 @@ class Home extends React.Component {
           <button>
             This is a Link to candidate
           </button>
-          </Link>
+        </Link>
         <Link to="/search-by-election">
           <button>
             This is a Link to election
           </button>
-          </Link>
+        </Link>
         <Link to="/about">
           <button>
             This is a Link to about
