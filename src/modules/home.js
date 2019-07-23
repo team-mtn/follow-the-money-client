@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import superagent from 'superagent';
 
 
 class Home extends React.Component {
@@ -7,7 +8,7 @@ class Home extends React.Component {
     super(props);
 
     this.state = {};
-  }
+  };
 
   render() {
     return(
