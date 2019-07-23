@@ -11,11 +11,11 @@ function Candidate(data) {
   this.candidate_name = data.candidate_name;
   this.party = data.party;
   this.data = [
-    {range: 1, earnings: data.size0},
-    {range: 2, earnings: data.size200},
-    {range: 3, earnings: data.size500},
-    {range: 4, earnings: data.size1k},
-    {range: 5, earnings: data.size2k},
+    {range: 1, earnings: parseInt(data.size0)},
+    {range: 2, earnings: parseInt(data.size200)},
+    {range: 3, earnings: parseInt(data.size500)},
+    {range: 4, earnings: parseInt(data.size1k)},
+    {range: 5, earnings: parseInt(data.size2k)},
   ];
 }
 

@@ -72,6 +72,9 @@
 ## Assets
 
 - Used Victory for graphics git@github.com:FormidableLabs/victory-tutorial.git
+- openFEC API https://api.open.fec.gov/developers/
+- News API https://newsapi.org/
+
 
 ### Prezi
 
