@@ -9,6 +9,15 @@ function Candidate(data) {
   this.data = [{ range: 1, earnings: parseInt(data.size0) }, { range: 2, earnings: parseInt(data.size200) }, { range: 3, earnings: parseInt(data.size500) }, { range: 4, earnings: parseInt(data.size1k) }, { range: 5, earnings: parseInt(data.size2k) }];
 }
 
+function NewsArticle(news){
+  this.source = news.source;
+  this.author = news.author;
+  this.title = news.title;
+  this.description = news.description;
+  this.url = news.url;
+  this.urlToImage = news.urlToImage;
+}
+
 class CandidateSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +32,16 @@ class CandidateSearch extends React.Component {
           data: [{ range: 1, earnings: 5 }, { range: 2, earnings: 10 }, { range: 3, earnings: 15 }, { range: 4, earnings: 20 }, { range: 5, earnings: 25 }]
         }
       ],
-      wiki: { data: 'whatever we want goes here' },
+      news: [
+        {
+          source: 'placeholder',
+          author: 'placeholder',
+          title: 'placeholder',
+          description: 'placeholder',
+          url: 'placeholder',
+          urlToImage: 'placeholder'
+        }
+      ],
       twitter: {}
     };
   }
@@ -38,14 +56,25 @@ class CandidateSearch extends React.Component {
         serverResponse.body.map(candidate => {
           temp.push(new Candidate(candidate));
         });
-        console.log('temp: ', temp);
         this.setState({ politicians: temp });
-        console.log('this.setState: right here', this.state.politicians);
       });
   }
 
   handleChange = event => {
     this.setState({ value: event.target.value });
+    superagent
+      .get(`https://follow-the-money-server.herokuapp.com/news`)
+      .query({name: event.target.value})
+      .then(res => {
+        let temp = [];
+        res.body.map(news => {
+          if (temp.length > 4){
+            temp.length = 4;
+          }
+          temp.push(new NewsArticle(news));
+        });
+        this.setState({ news: temp })
+      })
   };
 
   render() {
@@ -72,7 +101,7 @@ class CandidateSearch extends React.Component {
           <section id="wiki" style={{ width: '50%', margin: '2vh auto 2vh auto', backgroundColor: 'white', borderRadius: '10px' }}>
             <h2>{this.state.value}</h2>
 
-            <p>{this.state.wiki.data}</p>
+            {/* <p>{this.state.wiki.data}</p> */}
           </section>
         )}
         {this.state.value === 'Candidate Name' ? (
@@ -87,6 +116,21 @@ class CandidateSearch extends React.Component {
               </VictoryStack>
             </VictoryChart>
           </section>
+        )}
+        {this.state.value === 'Candidate Name' ? (
+          ''
+        ) : (
+          this.state.news.map(article => {
+            return(
+              <section>
+                <img src={article.urlToImage} width={'200px'}/>
+                <h4>Author: {article.author}</h4>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <p>Read more on <a href={article.url} target="_blank">{article.source}</a></p>
+              </section>
+            )
+          })
         )}
       </section>
     );
