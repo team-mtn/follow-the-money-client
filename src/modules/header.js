@@ -1,5 +1,6 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
+import { Link } from "react-router-dom";
 
 class HamburgerNav extends React.Component {
   showSettings (event) {
@@ -10,10 +11,37 @@ class HamburgerNav extends React.Component {
     return (
       <Menu>
         <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        <a id="contact" className="menu-item" href="/search-by-election">Search By Election</a>
+        <a id="about" className="menu-item" href="/search-by-candidate">Search By Candidate</a>
+        <a id="contact" className="menu-item" href="/about">About</a>
       </Menu>
+    );
+  }
+}
+
+class NavBar extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {};
+  }
+
+  render () {
+    return (
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/search-by-election">Search by Election</Link>
+        </li>
+        <li>
+          <Link to="/search-by-candidate">Search by Candidate</Link>
+        </li>
+      </ul>
     );
   }
 }
@@ -31,8 +59,13 @@ class Header extends React.Component {
   render() {
     return(
       <header>
-        <HamburgerNav/>
-        <img src=""/>
+        <nav id="hamburger-nav">
+          <HamburgerNav/>
+        </nav>
+        <nav id="desktop-nav">
+          <NavBar/>
+        </nav>
+        <div id="hero-logo"></div>
       </header>
     );
   }
