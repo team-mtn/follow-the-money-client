@@ -14,6 +14,7 @@ class CandidateSearch extends React.Component {
     super(props);
     this.state = {
       value: 'Candidate Name',
+      currentCandidate: 0,
       politicians: [
         {
           candidate_id: 'placeholder1',
@@ -47,11 +48,6 @@ class CandidateSearch extends React.Component {
     this.setState({ value: event.target.value });
   };
 
-  handleSubmit = event => {
-    alert(`You have selected ${this.state.value} to research.`);
-    event.preventDefault();
-  };
-
   render() {
     let optionList = this.state.politicians.map((v, i) => (
       <option key={i} index={i} value={v.candidate_name}>
@@ -68,8 +64,6 @@ class CandidateSearch extends React.Component {
               <option>Select Candidate</option>
               {optionList}
             </select>
-
-            <input type="submit" value="Submit" />
           </form>
         </section>
         {this.state.value === 'Candidate Name' ? (
@@ -89,7 +83,7 @@ class CandidateSearch extends React.Component {
               <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
               <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
               <VictoryStack colorScale={'red'}>
-                <VictoryBar data={this.state.politicians[0].data} x={'range'} y={'earnings'} />
+                <VictoryBar data={this.state.politicians.filter(v => v.candidate_name === this.state.value)[0].data} x={'range'} y={'earnings'} />
               </VictoryStack>
             </VictoryChart>
           </section>
