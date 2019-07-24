@@ -4,7 +4,6 @@ import superagent from 'superagent';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryLegend } from 'victory';
 
 import Header from './header.js';
-import '../css/about.css';
 
 function Candidate(data) {
   this.candidate_id = data.candidate_id;
