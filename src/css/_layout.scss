@@ -8,7 +8,7 @@ main {
   margin: auto;
   min-height: 50vh;
   margin-top: -15vh;
-  border-radius: 25px;
+  border-radius: $radius;
   padding: 2%;
 }
 
@@ -31,7 +31,7 @@ main {
   background-color: $offWhite;
   width: 100%;
   margin: auto;
-  border-radius: 25px;
+  border-radius: $radius;
   padding: 25px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 25px;
@@ -47,7 +47,7 @@ main {
 .half-section {
   background-color: $offWhite;
   width: 100%;
-  border-radius: 25px;
+  border-radius: $radius;
   padding: 25px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 25px;
@@ -57,7 +57,7 @@ aside, .section {
   background-color: $offWhite;
   width: 100%;
   margin: auto;
-  border-radius: 25px;
+  border-radius: $radius;
   padding: 25px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 25px;

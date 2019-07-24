@@ -73,7 +73,7 @@ class Election extends React.Component {
 
     return (
       <React.Fragment>
-        <Header height={'short'} imageID={'side-logo'} />
+        <Header height={"short"} imageID={"side-logo"} page={"election"}/>
         <main className="no-background flex">
 
           <section className="section">

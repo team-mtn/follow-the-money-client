@@ -13,7 +13,7 @@ class About extends React.Component {
     return (
       <React.Fragment>
 
-        <Header height={'short'} imageID={'side-logo'}/>
+        <Header height={"short"} imageID={"side-logo"} page={"about"}/>
 
         <main main className="about no-background">
           <section className="section">
@@ -41,6 +41,10 @@ class About extends React.Component {
             <article>
               <img style={{ width: '50px' }} src="../images/i-am-the-walrus.jpg" alt="I am the Walrus. Coo-Coo-Ca-Chew" />
               <p>Travis "The Mad Man" Cox in the relentless pursuit for his totem animal finds new and imaginative ways to hunt and consume programs. In the evening you will find him in his kennel recursively gnawing a piece of code to its binary roots.</p>
+            </article>
+            <article>
+              <img style={{ width: '50px' }} src="../images/i-am-the-walrus.jpg" alt="I am the Walrus. Coo-Coo-Ca-Chew" />
+              <p>Travis "The Mad Man" Cox is in the relentless pursuit for his totem animal.</p>
             </article>
           </section>
         </main>

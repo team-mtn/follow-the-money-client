@@ -12,9 +12,9 @@ class Home extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <Header height={'tall'} imageID={'hero-logo'}/>
+        <Header height={"tall"} imageID={"hero-logo"} page={"home"}/>
         <main>
-          <section>this section is for information and stuff like that</section>
+          <section class="intro">this section is for information and stuff like that</section>
           <div id="person-icon"></div>
           <div id="people-icon"></div>
           <Link to="/search-by-candidate">
