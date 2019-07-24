@@ -15,7 +15,7 @@ class About extends React.Component {
       <React.Fragment>
 
         <Header height={'short'} imageID={'side-logo'}/>
-        <main main className="about no-background">
+        <main className="about no-background">
           <section className="section">About Follow The Money</section>
           <section className="half-section">
             <h1>About the Project</h1>
