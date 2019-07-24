@@ -19,17 +19,17 @@ class Home extends React.Component {
           <div id="people-icon"></div>
           <Link to="/search-by-candidate">
             <button>
-              This is a Link to candidate
+              Search by Candidate
             </button>
           </Link>
           <Link to="/search-by-election">
             <button>
-              This is a Link to election
+              View Top Candidates
             </button>
           </Link>
           <Link to="/about">
             <button>
-              This is a Link to about
+              About Us
             </button>
           </Link>
         </main>

@@ -3,6 +3,10 @@ body {
   min-width: 320px;
 }
 
+body * {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 main {
   background-color: $offWhite;
   width: 95%;
@@ -13,13 +17,17 @@ main {
   padding: 2%;
 }
 
+main * {
+  color: $accentColor1;
+}
+
 .tall {
-  background-color: #3ABD91;
+  background-color: $mainColor;
   min-height: 50vh;
 }
 
 .short {
-  background-color: #3ABD91;
+  background-color: $mainColor;
   min-height: 25vh;
 }
 
@@ -71,7 +79,7 @@ aside, .section {
   }
 
   .short {
-    background-color: #3ABD91;
+    background-color: $mainColor;
     min-height: 30vh;
   }
 
