@@ -59,11 +59,6 @@ button {
   border-radius: 25px;
 }
 
-header {
-  background-color: #d6d6d6;
-  min-height: 40vh;
-}
-
 main {
   background-color: #fafafa;
   width: 95%;
@@ -73,9 +68,14 @@ main {
   border-radius: 25px;
 }
 
-header {
+.tall {
   background-color: #3ABD91;
   min-height: 40vh;
+}
+
+.short {
+  background-color: #3ABD91;
+  min-height: 30vh;
 }
 
 header > #hero-logo {
@@ -92,7 +92,7 @@ header > #hero-logo {
 
 header > #side-logo {
   position: relative;
-  top: 40px;
+  top: 60px;
   margin: auto;
   width: 300px;
   height: 10vh;
@@ -140,7 +140,7 @@ a:visited {
     padding: 15px 30px;
   }
 
-  header {
+  .tall {
     min-height: 50vh;
   }
 
@@ -151,12 +151,10 @@ a:visited {
 
   header > #side-logo {
     margin: 3% auto;
-    top: 10px;
+    top: -10px;
   }
 
 }
-
-
 
 
 /* Position and sizing of burger button */

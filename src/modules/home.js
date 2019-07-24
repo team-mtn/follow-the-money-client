@@ -13,7 +13,7 @@ class Home extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <Header imageID={'hero-logo'}/>
+        <Header height={'tall'} imageID={'hero-logo'}/>
         <main>
           <section>this section is for information and stuff like that</section>
           <Link to="/search-by-candidate">

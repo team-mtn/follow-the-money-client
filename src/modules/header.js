@@ -55,12 +55,13 @@ class Header extends React.Component {
 
     this.state = {
       imageID: this.props.imageID,
+      height: this.props.height,
     };
   }
 
   render() {
     return(
-      <header>
+      <header className={this.props.height}>
         <nav id="hamburger-nav">
           <HamburgerNav/>
         </nav>

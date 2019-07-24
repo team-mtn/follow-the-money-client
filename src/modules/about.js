@@ -14,13 +14,13 @@ class About extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <Header imageID={'side-logo'}/>
-        <main className="about">
-          <section>About Follow The Money</section>
-          <section>
+        <Header height={'short'} imageID={'side-logo'}/>
+        <main main className="about no-background">
+          <section className="section">About Follow The Money</section>
+          <section className="half-section">
             <h1>About the Project</h1>
           </section>
-          <section>
+          <section className="half-section">
             <h1>About the Creators</h1>
           </section>
         </main>
