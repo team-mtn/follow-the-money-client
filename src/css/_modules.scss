@@ -49,6 +49,12 @@ a:visited {
   margin-top: -7.5%;
 }
 
+.section ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+
 
 .section form {
   display: flex;
