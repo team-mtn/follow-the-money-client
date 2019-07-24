@@ -78,6 +78,7 @@ section ul li {
 
 .half-section h1 {
   font-size: 1.25em;
+  margin-bottom: 25px;
 }
 
 .section select {
@@ -153,7 +154,7 @@ aside > article > div * {
 }
 
 
-@media only screen and (min-width:960px) {
+@media only screen and (min-width:768px) {
   #hamburger-nav {
     display: none;
   }
