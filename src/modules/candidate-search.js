@@ -50,7 +50,6 @@ class CandidateSearch extends React.Component {
   }
 
   componentDidMount() {
-    console.log('say anything');
     superagent
       .get(`https://follow-the-money-server.herokuapp.com/allpoliticians`)
       .query()
@@ -89,8 +88,7 @@ class CandidateSearch extends React.Component {
 
     return (
       <React.Fragment>
-
-        <Header height={'short'} imageID={'side-logo'}/>
+        <Header height={'short'} imageID={'side-logo'} />
 
         <main className="no-background">
           <section>
