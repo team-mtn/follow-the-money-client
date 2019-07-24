@@ -7,13 +7,14 @@
   background-size: contain;
 }
 
-
 button {
   background-color: $accentColor2;
   padding: 15px;
   width: 60%;
   margin: 5% 5%;
   border-radius: $radius;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 header>#hero-logo {
@@ -151,6 +152,22 @@ aside > article  h2 {
 
 aside > article > div * {
   margin-bottom: 5px;
+}
+
+.half-section article {
+  display: flex;
+  align-items: center;
+}
+
+.half-section article img {
+  margin: 10px;
+  max-width: 20%;
+  border-radius: $radius;
+}
+
+.half-section article p {
+  margin: 5px;
+  text-align: left;
 }
 
 

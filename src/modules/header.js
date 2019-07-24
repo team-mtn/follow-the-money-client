@@ -13,14 +13,14 @@ class HamburgerNav extends React.Component {
         <a id="home" className="menu-item" href="/">
           Home
         </a>
-        <a id="contact" className="menu-item" href="/search-by-election">
-          Search By Election
-        </a>
         <a id="about" className="menu-item" href="/search-by-candidate">
           Search By Candidate
         </a>
+        <a id="contact" className="menu-item" href="/search-by-election">
+          View Top Candidates
+        </a>
         <a id="contact" className="menu-item" href="/about">
-          About
+          About Us
         </a>
       </Menu>
     );
@@ -56,10 +56,10 @@ class NavBar extends React.Component {
           <li>Home</li>
         </Link>
         <Link to="/about" className={this.state.about}>
-          <li>About</li>
+          <li>About Us</li>
         </Link>
         <Link to="/search-by-election" className={this.state.election}>
-          <li>Search by Election</li>
+          <li>View Top Candidates</li>
         </Link>
         <Link to="/search-by-candidate" className={this.state.search}>
           <li>Search by Candidate</li>
