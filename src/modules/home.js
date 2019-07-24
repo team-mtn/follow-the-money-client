@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import superagent from 'superagent';
+import Header from './header.js';
 
 
 class Home extends React.Component {
@@ -12,24 +12,27 @@ class Home extends React.Component {
 
   render() {
     return(
-      <main>
-        <section>this section is for information and stuff like that</section>
-        <Link to="/search-by-candidate">
-          <button>
-            This is a Link to candidate
-          </button>
-        </Link>
-        <Link to="/search-by-election">
-          <button>
-            This is a Link to election
-          </button>
-        </Link>
-        <Link to="/about">
-          <button>
-            This is a Link to about
-          </button>
-        </Link>
-      </main>
+      <React.Fragment>
+        <Header imageID={'hero-logo'}/>
+        <main>
+          <section>this section is for information and stuff like that</section>
+          <Link to="/search-by-candidate">
+            <button>
+              This is a Link to candidate
+            </button>
+          </Link>
+          <Link to="/search-by-election">
+            <button>
+              This is a Link to election
+            </button>
+          </Link>
+          <Link to="/about">
+            <button>
+              This is a Link to about
+            </button>
+          </Link>
+        </main>
+      </React.Fragment>
     );
   }
 }

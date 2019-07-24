@@ -9,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1C324A;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -51,9 +51,12 @@ main {
 }
 
 button {
-  background-color: #d6d6d6;
-  padding: 5px;
-  margin: 5px;
+  background-color: #FFCC5D;
+  /* background-color: #3ABD91; */
+  padding: 15px;
+  width: 25%;
+  margin: 10px 5%;
+  border-radius: 25px;
 }
 
 header {
@@ -71,7 +74,7 @@ main {
 }
 
 header {
-  background-color: #696969;
+  background-color: #3ABD91;
   min-height: 40vh;
 }
 
@@ -80,8 +83,20 @@ header > #hero-logo {
   top: 40px;
   margin: auto;
   width: 300px;
-  height: 20vh;
-  background-image: url(../images/follow-the-money-vertical.png);
+  height: 25vh;
+  background-image: url(../images/navyicontop.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+header > #side-logo {
+  position: relative;
+  top: 40px;
+  margin: auto;
+  width: 300px;
+  height: 10vh;
+  background-image: url(../images/navyiconsideways.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -112,17 +127,17 @@ a:visited {
 
   ul {
     overflow: hidden;
-    background-color: #373a47;
+    background-color: #1C324A;
   }
 
   header li:first-child {
     float: left;
-    padding: 10px 30px;
+    padding: 15px 30px;
   }
 
   header li {
     float: right;
-    padding: 10px 30px;
+    padding: 15px 30px;
   }
 
   header {
@@ -131,9 +146,11 @@ a:visited {
 
   header > #hero-logo {
     margin: 3% auto;
+    top: 10px;
   }
 
-  header > #hero-logo {
+  header > #side-logo {
+    margin: 3% auto;
     top: 10px;
   }
 

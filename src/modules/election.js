@@ -4,6 +4,7 @@ import * as V from 'victory';
 import superagent from 'superagent';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from 'victory';
 
+import Header from './header.js';
 import "../css/about.css";
 
 function Candidate(data) {
@@ -43,31 +44,34 @@ class Election extends React.Component {
 
   render() {
     return (
-      <section>
+      <React.Fragment>
+        <Header imageID={'side-logo'}/>
         <section>
-          <form onSubmit={this.handleSubmit}>
-            <h1>Search all Candidates</h1>
-            <input type="submit" value="Submit" onClick={this.handleSearch}/>
-          </form>
-        </section>
+          <section>
+            <form onSubmit={this.handleSubmit}>
+              <h1>Search all Candidates</h1>
+              <input type="submit" value="Submit" onClick={this.handleSearch}/>
+            </form>
+          </section>
 
-        <section id="wiki">
-          <h2>h2</h2>
+          <section id="wiki">
+            <h2>h2</h2>
 
-          <p>p</p>
-        </section>
+            <p>p</p>
+          </section>
 
-        <section style={{ width: '50%', margin: 'auto', backgroundColor: 'white', borderRadius: '100px' }}>
-          <h1>Victory Tutorial</h1>
-          <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
-            <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
-            <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
-            <VictoryStack colorScale={'red'}>
-              {/* <VictoryBar data={this.state.politicians[0].data} x={'range'} y={'earnings'} /> */}
-            </VictoryStack>
-          </VictoryChart>
+          <section style={{ width: '50%', margin: 'auto', backgroundColor: 'white', borderRadius: '100px' }}>
+            <h1>Victory Tutorial</h1>
+            <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
+              <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
+              <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
+              <VictoryStack colorScale={'red'}>
+                {/* <VictoryBar data={this.state.politicians[0].data} x={'range'} y={'earnings'} /> */}
+              </VictoryStack>
+            </VictoryChart>
+          </section>
         </section>
-      </section>
+      </React.Fragment>
     );
   }
 }
