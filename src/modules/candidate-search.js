@@ -3,16 +3,16 @@ import superagent from 'superagent';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from 'victory';
 
 import Header from './header.js';
-import "../css/search.css";
+import '../css/search.css';
 
 function Candidate(data) {
   this.candidate_id = data.candidate_id;
   this.candidate_name = data.candidate_name;
   this.party = data.party;
-  this.data = [{ range: 1, earnings: parseInt(data.size0) }, { range: 2, earnings: parseInt(data.size200) }, { range: 3, earnings: parseInt(data.size500) }, { range: 4, earnings: parseInt(data.size1k) }, { range: 5, earnings: parseInt(data.size2k) }];
+  this.data = [{ range: 1, earnings: data.size0 === null ? 0 : parseInt(data.size0) }, { range: 2, earnings: data.size200 === null ? 0 : parseInt(data.size200) }, { range: 3, earnings: data.size500 === null ? 0 : parseInt(data.size500) }, { range: 4, earnings: data.size1k === null ? 0 : parseInt(data.size1k) }, { range: 5, earnings: data.size2k === null ? 0 : parseInt(data.size2k) }];
 }
 
-function NewsArticle(news){
+function NewsArticle(news) {
   this.source = news.source;
   this.author = news.author;
   this.title = news.title;
@@ -67,17 +67,17 @@ class CandidateSearch extends React.Component {
     this.setState({ value: event.target.value });
     superagent
       .get(`https://follow-the-money-server.herokuapp.com/news`)
-      .query({name: event.target.value})
+      .query({ name: event.target.value })
       .then(res => {
         let temp = [];
         res.body.map(news => {
-          if (temp.length > 4){
+          if (temp.length > 4) {
             temp.length = 4;
           }
           temp.push(new NewsArticle(news));
         });
-        this.setState({ news: temp })
-      })
+        this.setState({ news: temp });
+      });
   };
 
   render() {
@@ -89,17 +89,18 @@ class CandidateSearch extends React.Component {
 
     return (
       <React.Fragment>
-        <Header imageID={'side-logo'}/>
+        <Header imageID={'side-logo'} />
         <main className="no-background">
-          <section className="section">
+          <section>
             <form onSubmit={this.handleSubmit}>
               <h1>Search For A Candidate By Name</h1>
               <select value={this.state.value} onChange={this.handleChange}>
-                <option>Candidate Name</option>
+                <option>Select Candidate</option>
                 {optionList}
               </select>
             </form>
           </section>
+
           {this.state.value === 'Candidate Name' ? (
             ''
           ) : (
@@ -109,6 +110,7 @@ class CandidateSearch extends React.Component {
               {/* <p>{this.state.wiki.data}</p> */}
             </section>
           )}
+
           {this.state.value === 'Candidate Name' ? (
             ''
           ) : (
@@ -122,23 +124,28 @@ class CandidateSearch extends React.Component {
               </VictoryChart>
             </section>
           )}
-          {this.state.value === 'Candidate Name' ? (
-            ''
-          ) : (
-            this.state.news.map(article => {
-              return(
-                <section className="section news">
-                  <img src={article.urlToImage} width={'200px'}/>
-                  <article>
-                    <h3>{article.title}</h3>
-                    <h4>Author: <span>{article.author}</span></h4>
-                    <p>{article.description} </p>
-                    <p class="right">Read more on <a href={article.url} target="_blank">{article.source}</a></p>
-                  </article>
-                </section>
-              )
-            })
-          )}
+          {this.state.value === 'Candidate Name'
+            ? ''
+            : this.state.news.map(article => {
+                return (
+                  <section className="section news">
+                    <img src={article.urlToImage} width={'200px'} />
+                    <article>
+                      <h3>{article.title}</h3>
+                      <h4>
+                        Author: <span>{article.author}</span>
+                      </h4>
+                      <p>{article.description} </p>
+                      <p class="right">
+                        Read more on{' '}
+                        <a href={article.url} target="_blank">
+                          {article.source}
+                        </a>
+                      </p>
+                    </article>
+                  </section>
+                );
+              })}
         </main>
       </React.Fragment>
     );

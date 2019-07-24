@@ -27,12 +27,13 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -78,7 +79,7 @@ header {
   min-height: 40vh;
 }
 
-header > #hero-logo {
+header>#hero-logo {
   position: relative;
   top: 40px;
   margin: auto;
@@ -90,7 +91,7 @@ header > #hero-logo {
   background-size: contain;
 }
 
-header > #side-logo {
+header>#side-logo {
   position: relative;
   top: 40px;
   margin: auto;
@@ -112,16 +113,16 @@ a:visited {
 }
 
 
-#desktop-nav{
+#desktop-nav {
   display: none;
 }
 
-@media only screen and (min-width:960px){
+@media only screen and (min-width:960px) {
   #hamburger-nav {
     display: none;
   }
 
-  #desktop-nav{
+  #desktop-nav {
     display: block;
   }
 
@@ -144,12 +145,12 @@ a:visited {
     min-height: 50vh;
   }
 
-  header > #hero-logo {
+  header>#hero-logo {
     margin: 3% auto;
     top: 10px;
   }
 
-  header > #side-logo {
+  header>#side-logo {
     margin: 3% auto;
     top: 10px;
   }
