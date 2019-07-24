@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import superagent from 'superagent';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryLegend } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
 
 import Header from './header.js';
 import Tweet from './tweet.js';
@@ -41,14 +40,14 @@ class Election extends React.Component {
   }
 
   componentDidMount() {
-    console.log('say anything');
     superagent
       .get(`https://follow-the-money-server.herokuapp.com/allpoliticians`)
       .query()
       .then(serverResponse => {
         let temp = [];
         serverResponse.body.map(candidate => {
-          temp.push(new Candidate(candidate));
+          return temp.push(new Candidate(candidate));
+          
         });
         this.setState({ politicians: temp });
       });
@@ -59,8 +58,8 @@ class Election extends React.Component {
     let names = [];
     datum.length = 5;
 
-    datum.forEach(v => {
-      return assembled.push([{ ...v.data[0] }, { ...v.data[1] }, { ...v.data[2] }, { ...v.data[3] }, { ...v.data[4] }]), names.push(v.candidate_name);
+    datum.forEach(v => {assembled.push([{ ...v.data[0] }, { ...v.data[1] }, { ...v.data[2] }, { ...v.data[3] }, { ...v.data[4] }]); names.push(v.candidate_name);
+    return
     });
 
     return [assembled, names];
@@ -69,9 +68,8 @@ class Election extends React.Component {
   render() {
     let sortPolitician = this.state.politicians.sort((a, b) => Number(a.totalreceipt) < Number(b.totalreceipt));
     let barData = this.dataBars(sortPolitician);
-    console.log('barData: ', barData);
     const qualitative = ["#334D5C", "#45B29D", "#EFC94C", "#E27A3F", "#DF5A49"]
-    let candidateList = barData[1].map((v, i) => <li style={{color: qualitative[i]}}>{v}</li>)
+    let candidateList = barData[1].map((v, i) => <li key={i} index={i} style={{color: qualitative[i]}}>{v}</li>)
 
     return (
       <React.Fragment>
