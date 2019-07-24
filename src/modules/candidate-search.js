@@ -3,7 +3,7 @@ import superagent from 'superagent';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from 'victory';
 
 import Header from './header.js';
-import '../css/search.css';
+import Tweet from './tweet.js';
 
 function Candidate(data) {
   this.candidate_id = data.candidate_id;
@@ -19,6 +19,13 @@ function NewsArticle(news) {
   this.description = news.description;
   this.url = news.url;
   this.urlToImage = news.urlToImage;
+}
+
+function Twitter(tweet) {
+  this.urlToImage = tweet.url;
+  this.name = tweet.name;
+  this.created_at = tweet.created_at;
+  this.text = tweet.text;
 }
 
 class CandidateSearch extends React.Component {
@@ -45,7 +52,14 @@ class CandidateSearch extends React.Component {
           urlToImage: 'placeholder'
         }
       ],
-      twitter: {}
+      twitter: [
+        {
+          urlToImage: 'placeholder',
+          name: 'placeholder',
+          created_at: 'placeholder',
+          text: 'placeholder',
+        }
+      ]
     };
   }
 
@@ -77,6 +91,16 @@ class CandidateSearch extends React.Component {
         });
         this.setState({ news: temp });
       });
+    // superagent
+    //   .get(``)
+    //   .query({name: "stuff"})
+    //   .then(res => {
+    //     let temp = [];
+    //     res.body.map(tweet => {
+    //       temp.push(new Twitter(tweet));
+    //     })
+    //     this.setState({twitter: temp});
+    //   });
   };
 
   render() {
@@ -89,9 +113,8 @@ class CandidateSearch extends React.Component {
     return (
       <React.Fragment>
         <Header height={'short'} imageID={'side-logo'} />
-
-        <main className="no-background">
-          <section>
+        <main className="no-background flex">
+          <section className="section">
             <form onSubmit={this.handleSubmit}>
               <h1>Search For A Candidate By Name</h1>
               <select value={this.state.value} onChange={this.handleChange}>
@@ -101,49 +124,67 @@ class CandidateSearch extends React.Component {
             </form>
           </section>
 
-          {this.state.value === 'Candidate Name' ? (
-            ''
-          ) : (
-            <section className="section">
-              <h2>{this.state.value}</h2>
-            </section>
-          )}
 
+          <div className="main">
+
+            {this.state.value === 'Candidate Name' ? (
+              ''
+            ) : (
+              <section className="section">
+                <h2>{this.state.value}</h2>
+                {/* <p>{this.state.wiki.data}</p> */}
+              </section>
+            )}
+
+            {this.state.value === 'Candidate Name' ? (
+              ''
+            ) : (
+              <section className="section chart">
+                <VictoryChart padding={0, 0, 0, 60} height={250} theme={VictoryTheme.material}>
+                  <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
+                  <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
+                  <VictoryStack colorScale={'cool'}>
+                    <VictoryBar data={this.state.politicians.filter(v => v.candidate_name === this.state.value)[0].data} x={'range'} y={'earnings'} />
+                  </VictoryStack>
+                </VictoryChart>
+              </section>
+            )}
+            {this.state.value === 'Candidate Name'
+              ? ''
+              : this.state.news.map(article => {
+                  return (
+                    <section className="section news">
+                      <img src={article.urlToImage} width={'200px'} />
+                      <article>
+                        <h3>{article.title}</h3>
+                        <h4>
+                          Author: <span>{article.author}</span>
+                        </h4>
+                        <p>{article.description} </p>
+                        <p class="right">
+                          Read more on{' '}
+                          <a href={article.url} target="_blank">
+                            {article.source}
+                          </a>
+                        </p>
+                      </article>
+                    </section>
+                  );
+                })
+            }
+          </div>
+        
           {this.state.value === 'Candidate Name' ? (
-            ''
-          ) : (
-            <section className="section">
-              <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
-                <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
-                <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
-                <VictoryStack colorScale={'cool'}>
-                  <VictoryBar data={this.state.politicians.filter(v => v.candidate_name === this.state.value)[0].data} x={'range'} y={'earnings'} />
-                </VictoryStack>
-              </VictoryChart>
-            </section>
-          )}
-          {this.state.value === 'Candidate Name'
-            ? ''
-            : this.state.news.map((article, i) => {
-                return (
-                  <section key={i} index={i} className="section news">
-                    <img src={article.urlToImage} width={'200px'} alt="article" />
-                    <article >
-                      <h3>{article.title}</h3>
-                      <h4>
-                        Author: <span>{article.author}</span>
-                      </h4>
-                      <p>{article.description} </p>
-                      <p className="right">
-                        Read more on{' '}
-                        <a href={article.url} target="_blank" rel="noopener noreferrer">
-                          {article.source}
-                        </a>
-                      </p>
-                    </article>
-                  </section>
-                );
-              })}
+              ''
+            ) : (
+              <aside>
+                { this.state.twitter.map(tweet => (
+                    <Tweet image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'}/>
+                ))}
+              </aside>
+            )
+          }
+
         </main>
       </React.Fragment>
     );

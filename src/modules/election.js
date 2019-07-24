@@ -3,7 +3,7 @@ import superagent from 'superagent';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
 
 import Header from './header.js';
-import '../css/about.css';
+import Tweet from './tweet.js';
 
 function Candidate(data) {
   this.candidate_id = data.candidate_id;
@@ -14,13 +14,29 @@ function Candidate(data) {
   this.total_receipt = parseInt(data.totalreceipt);
 }
 
+function Twitter(tweet) {
+  this.urlToImage = tweet.url;
+  this.name = tweet.name;
+  this.created_at = tweet.created_at;
+  this.text = tweet.text;
+}
+
 class Election extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      politicians: []
+      politicians: [],
+      twitter: [
+        {
+          urlToImage: 'placeholder',
+          name: 'placeholder',
+          created_at: 'placeholder',
+          text: 'placeholder',
+        }
+      ]
     };
+    
   }
 
   componentDidMount() {
@@ -58,41 +74,44 @@ class Election extends React.Component {
     return (
       <React.Fragment>
         <Header height={'short'} imageID={'side-logo'} />
+        <main className="no-background flex">
 
-        <section>
-          <form onSubmit={this.handleSubmit}>
-            <h1>Search all Candidates</h1>
-            <input type="submit" value="Submit" onClick={this.handleSearch} />
-          </form>
-        </section>
+          <section className="section">
+            <h1>Top Five Funds</h1>
+            <ul>
+              {candidateList}
+            </ul>
+          </section>
 
-        <section className='section'>
-          <h1>Top Five Funds</h1>
-          <ul>
-            {candidateList}
-          </ul>
-        </section>
+          <div className="main">
+            <section className="section">
+              
+              <VictoryChart padding={0, 0, 0, 60} domainPadding={10} theme={VictoryTheme.material}>
+                
+                <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
 
-        <section style={{ width: '50%', margin: 'auto', backgroundColor: 'white', borderRadius: '100px' }}>
-          
-          <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
-            
-            <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
-
-            <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
+                <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
 
 
-            <VictoryStack colorScale={'qualitative'}>
-              {/* <VictoryBar data={[{ x: 2, y: 6, fill: 'tomato' }, { x: 4, y: 4, fill: 'orange' }, { x: 6, y: 2, fill: 'gold' }, { x: 8, y: 4, fill: 'tomato' }]} /> */}
+                <VictoryStack colorScale={'qualitative'}>
+                  {/* <VictoryBar data={[{ x: 2, y: 6, fill: 'tomato' }, { x: 4, y: 4, fill: 'orange' }, { x: 6, y: 2, fill: 'gold' }, { x: 8, y: 4, fill: 'tomato' }]} /> */}
 
-              <VictoryBar data={barData[0][0]} x={'range'} y={'earnings'} />
-              <VictoryBar data={barData[0][1]} x={'range'} y={'earnings'} />
-              <VictoryBar data={barData[0][2]} x={'range'} y={'earnings'} />
-              <VictoryBar data={barData[0][3]} x={'range'} y={'earnings'} />
-              <VictoryBar data={barData[0][4]} x={'range'} y={'earnings'} />
-            </VictoryStack>
-          </VictoryChart>
-        </section>
+                  <VictoryBar data={barData[0][0]} x={'range'} y={'earnings'} />
+                  <VictoryBar data={barData[0][1]} x={'range'} y={'earnings'} />
+                  <VictoryBar data={barData[0][2]} x={'range'} y={'earnings'} />
+                  <VictoryBar data={barData[0][3]} x={'range'} y={'earnings'} />
+                  <VictoryBar data={barData[0][4]} x={'range'} y={'earnings'} />
+                </VictoryStack>
+              </VictoryChart>
+            </section>
+          </div>
+          <aside>
+            { this.state.twitter.map(tweet => (
+                <Tweet image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'}/>
+            ))}
+          </aside>
+        </main>
+
       </React.Fragment>
     );
   }

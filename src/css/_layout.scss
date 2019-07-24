@@ -1,0 +1,97 @@
+body {
+  background-color: $backgroundColor;
+}
+
+main {
+  background-color: $offWhite;
+  width: 95%;
+  margin: auto;
+  min-height: 50vh;
+  margin-top: -15vh;
+  border-radius: 25px;
+  padding: 2%;
+}
+
+.tall {
+  background-color: #3ABD91;
+  min-height: 50vh;
+}
+
+.short {
+  background-color: #3ABD91;
+  min-height: 25vh;
+}
+
+.no-background {
+  background-color: transparent;
+  margin-top: -7.5%;
+}
+
+.section {
+  background-color: $offWhite;
+  width: 100%;
+  margin: auto;
+  border-radius: 25px;
+  padding: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 25px;
+}
+
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.half-section {
+  background-color: $offWhite;
+  width: 100%;
+  border-radius: 25px;
+  padding: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 25px;
+}
+
+aside, .section {
+  background-color: $offWhite;
+  width: 100%;
+  margin: auto;
+  border-radius: 25px;
+  padding: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 25px;
+}
+
+
+@media only screen and (min-width:960px) {
+  .tall {
+    min-height: 50vh;
+  }
+
+  .short {
+    background-color: #3ABD91;
+    min-height: 30vh;
+  }
+
+  .half-section {
+    width: 49%;
+  }
+
+  .section:first-of-type {
+    width: 100%;
+  }
+  
+  main > .main {
+    width: 70%;
+    align-items: stretch;
+    align-content: stretch;
+    float: right;
+  }
+  
+  aside {
+    width: 28%;
+    min-height: 120vh;
+    float: left;
+  }
+}

@@ -1,0 +1,208 @@
+button {
+  background-color: $accentColor2;
+  /* background-color: #3ABD91; */
+  padding: 15px;
+  width: 60%;
+  margin: 10px 5%;
+  border-radius: 25px;
+}
+
+header>#hero-logo {
+  position: relative;
+  top: 40px;
+  margin: auto;
+  width: 300px;
+  height: 25vh;
+  background-image: url(../images/navyicontop.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+header>#side-logo {
+  position: relative;
+  top: 60px;
+  margin: auto;
+  width: 300px;
+  height: 10vh;
+  background-image: url(../images/navyiconsideways.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+a {
+  color: $offWhite;
+  outline: none;
+}
+
+a:visited {
+  color: $backgroundColor;
+}
+
+#desktop-nav {
+  display: none;
+}
+
+.no-background {
+  background-color: transparent;
+  margin-top: -7.5%;
+}
+
+.section ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+
+
+.section form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.section h1 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0px 2%;
+}
+
+.half-section h1 {
+  font-size: 1.25em;
+}
+
+.section select {
+  font-size: 1.25em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  max-width: 50%;
+  margin: 0px 2%;
+}
+
+.news {
+  display: flex;
+  align-items: flex-start;
+}
+
+.news h3 {
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: 10px 20px;
+}
+
+.news h4 > span {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.news p {
+  text-align: left;
+  margin: 10px 20px;
+}
+
+.news p > a {
+  color: $accentColor1;
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+aside > article {
+  width: 100%;
+  background-color: $backgroundColor;
+  margin: auto;
+  padding: 10px;
+  border-radius: 25px;
+  margin-bottom: 5%;
+  display: flex;
+  text-align: left;
+}
+
+aside > article img {
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+}
+
+aside > article > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+aside > article  h2 {
+  font-weight: bold;
+}
+
+aside > article > div * {
+  margin-bottom: 5px;
+}
+
+
+@media only screen and (min-width:960px) {
+  #hamburger-nav {
+    display: none;
+  }
+
+  #desktop-nav {
+    display: block;
+  }
+
+  header ul {
+    overflow: hidden;
+    background-color: $accentColor1;
+  }
+
+  header li:first-child {
+    float: left;
+    padding: 15px 30px;
+  }
+
+  header li {
+    float: right;
+    padding: 15px 30px;
+  }
+
+  header > #hero-logo {
+    margin: 3% auto;
+    top: 10px;
+  }
+
+  header>#side-logo {
+    margin: 3% auto;
+    top: -10px;
+  }
+
+  button {
+    padding: 15px;
+    width: 25%;
+    margin: 10px 5%;
+  }
+
+  #person-icon {
+    background-image: url("../images/navypersonicon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    padding: 15px;
+    width: 25%;
+    height: 100px;
+    margin: 0px 5%;
+  }
+
+  #people-icon {
+    background-image: url("../images/navypeopleicon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    padding: 15px;
+    width: 25%;
+    height: 100px;
+    margin: 0px 5%;
+  }
+}
