@@ -55,14 +55,9 @@ button {
   background-color: #FFCC5D;
   /* background-color: #3ABD91; */
   padding: 15px;
-  width: 25%;
+  width: 60%;
   margin: 10px 5%;
   border-radius: 25px;
-}
-
-header {
-  background-color: #d6d6d6;
-  min-height: 40vh;
 }
 
 main {
@@ -70,13 +65,18 @@ main {
   width: 95%;
   margin: auto;
   min-height: 30vh;
-  margin-top: -5%;
+  margin-top: -15vh;
   border-radius: 25px;
 }
 
-header {
+.tall {
   background-color: #3ABD91;
-  min-height: 40vh;
+  min-height: 50vh;
+}
+
+.short {
+  background-color: #3ABD91;
+  min-height: 25vh;
 }
 
 header>#hero-logo {
@@ -93,7 +93,7 @@ header>#hero-logo {
 
 header>#side-logo {
   position: relative;
-  top: 40px;
+  top: 60px;
   margin: auto;
   width: 300px;
   height: 10vh;
@@ -141,23 +141,60 @@ a:visited {
     padding: 15px 30px;
   }
 
-  header {
+  .tall {
     min-height: 50vh;
   }
 
-  header>#hero-logo {
+   .short {
+    background-color: #3ABD91;
+    min-height: 30vh;
+  }
+
+  header > #hero-logo {
+
     margin: 3% auto;
     top: 10px;
   }
 
   header>#side-logo {
     margin: 3% auto;
-    top: 10px;
+    top: -10px;
   }
 
+  button {
+    padding: 15px;
+    width: 25%;
+    margin: 10px 5%;
+  }
+
+  main {
+    margin-top: -13vh;
+  }
+
+  #person-icon {
+    background-image: url("../images/navypersonicon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    padding: 15px;
+    width: 25%;
+    height: 100px;
+    margin: 0px 5%;
+  }
+
+  #people-icon {
+    background-image: url("../images/navypeopleicon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    padding: 15px;
+    width: 25%;
+    height: 100px;
+    margin: 0px 5%;
+  }
 }
-
-
 
 
 /* Position and sizing of burger button */
@@ -171,12 +208,12 @@ a:visited {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #1C324A;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #FFCC5D;
 }
 
 /* Position and sizing of clickable cross button */
@@ -201,14 +238,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: #1C324A;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #373a47;
+  fill: #1C324A;
 }
 
 /* Wrapper for item list */

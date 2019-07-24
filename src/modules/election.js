@@ -42,7 +42,10 @@ class Election extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header imageID={'side-logo'} />
+
+
+        <Header height={'short'} imageID={'side-logo'}/>
+
         <section>
           <form onSubmit={this.handleSubmit}>
             <h1>Search all Candidates</h1>
