@@ -12,7 +12,7 @@ function Candidate(data) {
   this.data = [{ range: 1, earnings: data.size0 === null ? 0 : parseInt(data.size0) }, { range: 2, earnings: data.size200 === null ? 0 : parseInt(data.size200) }, { range: 3, earnings: data.size500 === null ? 0 : parseInt(data.size500) }, { range: 4, earnings: data.size1k === null ? 0 : parseInt(data.size1k) }, { range: 5, earnings: data.size2k === null ? 0 : parseInt(data.size2k) }];
   this.total_receipt = parseInt(data.totalreceipt).toLocaleString('en', {
     minimumFractionDigits: 0
-});
+  });
 }
 
 function NewsArticle(news) {
@@ -61,7 +61,7 @@ class CandidateSearch extends React.Component {
           urlToImage: 'placeholder',
           name: 'placeholder',
           created_at: 'placeholder',
-          text: 'placeholder',
+          text: 'placeholder'
         }
       ]
     };
@@ -116,33 +116,29 @@ class CandidateSearch extends React.Component {
 
     return (
       <React.Fragment>
-        <Header height={"short"} imageID={"side-logo"} page={"search"}/>
+        <Header height={'short'} imageID={'side-logo'} page={'search'} />
         <main className="no-background flex">
           <section className="section">
             <form onSubmit={this.handleSubmit}>
               <h1>Search For A Candidate By Name</h1>
               <select value={this.state.value} onChange={this.handleChange}>
-                <option  key={22222} index={22222} value='Select Candidate'>Select Candidate</option>
+                <option key={22222} index={22222} value="Select Candidate">
+                  Select Candidate
+                </option>
                 {optionList}
               </select>
             </form>
           </section>
 
-
           <div className="main">
-
             {this.state.value === 'Candidate Name' ? (
               ''
             ) : (
               <section className="section">
                 <h1>{this.state.value}</h1>
                 <ul>
-                  <li>Party: {this.state.politicians.filter(candidate => 
-                    candidate.candidate_name === this.state.value
-                  )[0].party}</li>
-                  <li>Total Funds: ${this.state.politicians.filter(candidate =>
-                  candidate.candidate_name === this.state.value
-                  )[0].total_receipt}</li>
+                  <li>Party: {this.state.politicians.filter(candidate => candidate.candidate_name === this.state.value)[0].party}</li>
+                  <li>Total Funds: ${this.state.politicians.filter(candidate => candidate.candidate_name === this.state.value)[0].total_receipt}</li>
                 </ul>
               </section>
             )}
@@ -151,7 +147,7 @@ class CandidateSearch extends React.Component {
               ''
             ) : (
               <section className="section chart">
-                <VictoryChart padding={0, 0, 0, 60} height={250} theme={VictoryTheme.material}>
+                <VictoryChart padding={(0, 0, 0, 60)} height={250} theme={VictoryTheme.material}>
                   <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
                   <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
                   <VictoryStack colorScale={'cool'}>
@@ -162,40 +158,37 @@ class CandidateSearch extends React.Component {
             )}
             {this.state.value === 'Candidate Name'
               ? ''
-              : this.state.news.map(article => {
+              : this.state.news.map((article, i) => {
                   return (
-                    <section className="section news">
-                      <img src={article.urlToImage} />
+                    <section key={i} index={i} className="section news">
+                      <img src={article.urlToImage} alt="news Artcle" />
                       <article>
                         <h3>{article.title}</h3>
                         <h4>
                           Author: <span>{article.author}</span>
                         </h4>
                         <p>{article.description} </p>
-                        <p class="right">
+                        <p className="right">
                           Read more on{' '}
-                          <a href={article.url} target="_blank">
+                          <a href={article.url} target="_blank" rel="noopener noreferrer">
                             {article.source}
                           </a>
                         </p>
                       </article>
                     </section>
                   );
-                })
-            }
+                })}
           </div>
-        
-          {this.state.value === 'Candidate Name' ? (
-              ''
-            ) : (
-              <aside>
-                { this.state.twitter.map(tweet => (
-                    <Tweet image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'}/>
-                ))}
-              </aside>
-            )
-          }
 
+          {this.state.value === 'Candidate Name' ? (
+            ''
+          ) : (
+            <aside>
+              {this.state.twitter.map((tweet, i) => (
+                <Tweet key={i} index={i} image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'} />
+              ))}
+            </aside>
+          )}
         </main>
       </React.Fragment>
     );

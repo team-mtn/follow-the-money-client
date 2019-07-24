@@ -106,8 +106,8 @@ class Election extends React.Component {
             </section>
           </div>
           <aside>
-            { this.state.twitter.map(tweet => (
-                <Tweet image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'}/>
+            { this.state.twitter.map((tweet, i) => (
+                <Tweet key={i} index={i} image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'}/>
             ))}
           </aside>
         </main>
