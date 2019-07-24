@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/follow-the-money-client/static/css/main.9070d4a5.chunk.css",
+    "main.js": "/follow-the-money-client/static/js/main.fa4eb3c8.chunk.js",
+    "main.js.map": "/follow-the-money-client/static/js/main.fa4eb3c8.chunk.js.map",
+    "runtime~main.js": "/follow-the-money-client/static/js/runtime~main.d09ff24a.js",
+    "runtime~main.js.map": "/follow-the-money-client/static/js/runtime~main.d09ff24a.js.map",
+    "static/js/2.d64f9be3.chunk.js": "/follow-the-money-client/static/js/2.d64f9be3.chunk.js",
+    "static/js/2.d64f9be3.chunk.js.map": "/follow-the-money-client/static/js/2.d64f9be3.chunk.js.map",
+    "index.html": "/follow-the-money-client/index.html",
+    "precache-manifest.7b53fe731d4c43ab159ed8891fbe72e0.js": "/follow-the-money-client/precache-manifest.7b53fe731d4c43ab159ed8891fbe72e0.js",
+    "service-worker.js": "/follow-the-money-client/service-worker.js",
+    "static/css/main.9070d4a5.chunk.css.map": "/follow-the-money-client/static/css/main.9070d4a5.chunk.css.map",
+    "static/media/core.scss": "/follow-the-money-client/static/media/navyicontop.69e0bf16.png"
+  }
+}
