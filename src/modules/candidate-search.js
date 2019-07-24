@@ -70,7 +70,7 @@ class CandidateSearch extends React.Component {
       .then(serverResponse => {
         let temp = [];
         serverResponse.body.map(candidate => {
-          temp.push(new Candidate(candidate));
+          return temp.push(new Candidate(candidate));
         });
         this.setState({ politicians: temp });
       });
@@ -87,7 +87,7 @@ class CandidateSearch extends React.Component {
           if (temp.length > 4) {
             temp.length = 4;
           }
-          temp.push(new NewsArticle(news));
+          return temp.push(new NewsArticle(news));
         });
         this.setState({ news: temp });
       });
@@ -118,11 +118,12 @@ class CandidateSearch extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <h1>Search For A Candidate By Name</h1>
               <select value={this.state.value} onChange={this.handleChange}>
-                <option>Select Candidate</option>
+                <option  key={22222} index={22222} value='Select Candidate'>Select Candidate</option>
                 {optionList}
               </select>
             </form>
           </section>
+
 
           <div className="main">
 
@@ -131,7 +132,6 @@ class CandidateSearch extends React.Component {
             ) : (
               <section className="section">
                 <h2>{this.state.value}</h2>
-
                 {/* <p>{this.state.wiki.data}</p> */}
               </section>
             )}
@@ -184,6 +184,7 @@ class CandidateSearch extends React.Component {
               </aside>
             )
           }
+
         </main>
       </React.Fragment>
     );
