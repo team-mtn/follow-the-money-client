@@ -4,7 +4,7 @@ import React from "react";
 function Tweet(props) {
   return (
     <article>
-      <img src={props.image}/>
+      <img src={props.image} alt="profile"/>
       <div>
         <h2>{props.name}</h2>
         <h4>{props.created_at}</h4>

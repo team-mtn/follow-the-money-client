@@ -10,6 +10,9 @@ function Candidate(data) {
   this.candidate_name = data.candidate_name;
   this.party = data.party;
   this.data = [{ range: 1, earnings: data.size0 === null ? 0 : parseInt(data.size0) }, { range: 2, earnings: data.size200 === null ? 0 : parseInt(data.size200) }, { range: 3, earnings: data.size500 === null ? 0 : parseInt(data.size500) }, { range: 4, earnings: data.size1k === null ? 0 : parseInt(data.size1k) }, { range: 5, earnings: data.size2k === null ? 0 : parseInt(data.size2k) }];
+  this.total_receipt = parseInt(data.totalreceipt).toLocaleString('en', {
+    minimumFractionDigits: 0
+});
 }
 
 function NewsArticle(news) {
@@ -39,6 +42,7 @@ class CandidateSearch extends React.Component {
           candidate_id: 'placeholder1',
           candidate_name: 'placeholder',
           party: 'libertas',
+          totalreceipt: '100000',
           data: [{ range: 1, earnings: 5 }, { range: 2, earnings: 10 }, { range: 3, earnings: 15 }, { range: 4, earnings: 20 }, { range: 5, earnings: 25 }]
         }
       ],
@@ -112,7 +116,7 @@ class CandidateSearch extends React.Component {
 
     return (
       <React.Fragment>
-        <Header height={'short'} imageID={'side-logo'} />
+        <Header height={"short"} imageID={"side-logo"} page={"search"}/>
         <main className="no-background flex">
           <section className="section">
             <form onSubmit={this.handleSubmit}>
@@ -131,8 +135,15 @@ class CandidateSearch extends React.Component {
               ''
             ) : (
               <section className="section">
-                <h2>{this.state.value}</h2>
-                {/* <p>{this.state.wiki.data}</p> */}
+                <h1>{this.state.value}</h1>
+                <ul>
+                  <li>Party: {this.state.politicians.filter(candidate => 
+                    candidate.candidate_name === this.state.value
+                  )[0].party}</li>
+                  <li>Total Funds: ${this.state.politicians.filter(candidate =>
+                  candidate.candidate_name === this.state.value
+                  )[0].total_receipt}</li>
+                </ul>
               </section>
             )}
 
@@ -154,7 +165,7 @@ class CandidateSearch extends React.Component {
               : this.state.news.map(article => {
                   return (
                     <section className="section news">
-                      <img src={article.urlToImage} width={'200px'} />
+                      <img src={article.urlToImage} />
                       <article>
                         <h3>{article.title}</h3>
                         <h4>

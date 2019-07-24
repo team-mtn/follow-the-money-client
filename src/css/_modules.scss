@@ -1,43 +1,48 @@
+@mixin logo {
+  position: relative;
+  margin: auto;
+  width: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
 button {
   background-color: $accentColor2;
-  /* background-color: #3ABD91; */
   padding: 15px;
   width: 60%;
-  margin: 10px 5%;
-  border-radius: 25px;
+  margin: 5% 5%;
+  border-radius: $radius;
 }
 
 header>#hero-logo {
-  position: relative;
   top: 40px;
-  margin: auto;
-  width: 300px;
   height: 25vh;
   background-image: url(../images/navyicontop.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  @include logo;
 }
 
 header>#side-logo {
-  position: relative;
   top: 60px;
-  margin: auto;
-  width: 300px;
   height: 10vh;
   background-image: url(../images/navyiconsideways.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  @include logo;
 }
 
 a {
   color: $offWhite;
   outline: none;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:visited {
   color: $backgroundColor;
+}
+
+.intro {
+  margin: 5%;
 }
 
 #desktop-nav {
@@ -51,10 +56,14 @@ a:visited {
 
 .section ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 2%;
 }
 
+section ul li {
+  margin: 2%;
+}
 
 .section form {
   display: flex;
@@ -80,13 +89,21 @@ a:visited {
 
 .news {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
+}
+
+.news img {
+  width: 50%;
+  max-height: 200px;
 }
 
 .news h3 {
   font-weight: bold;
   font-size: 1.25em;
   margin: 10px 20px;
+  text-align: left;
 }
 
 .news h4 > span {
@@ -103,18 +120,12 @@ a:visited {
   color: $accentColor1;
 }
 
-.chart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 aside > article {
   width: 100%;
   background-color: $backgroundColor;
   margin: auto;
   padding: 10px;
-  border-radius: 25px;
+  border-radius: $radius;
   margin-bottom: 5%;
   display: flex;
   text-align: left;
@@ -156,14 +167,24 @@ aside > article > div * {
     background-color: $accentColor1;
   }
 
-  header li:first-child {
+  header a:first-child {
     float: left;
     padding: 15px 30px;
   }
 
-  header li {
+  header a {
     float: right;
     padding: 15px 30px;
+    margin: 1px;
+    font-size: 1.2em;
+  }
+
+  .selected {
+    background-color: $mainColor;
+  }
+
+  .selected li {
+    color: $accentColor1;
   }
 
   header > #hero-logo {
@@ -176,10 +197,18 @@ aside > article > div * {
     top: -10px;
   }
 
+  .intro {
+    margin: 1%;
+  }
+
+  section ul li {
+    margin: 0%;
+  }  
+
   button {
     padding: 15px;
     width: 25%;
-    margin: 10px 5%;
+    margin: 2% 5%;
   }
 
   #person-icon {
@@ -204,5 +233,17 @@ aside > article > div * {
     width: 25%;
     height: 100px;
     margin: 0px 5%;
+  }
+
+  .news {
+    flex-wrap: nowrap;
+  }
+  
+  .news img {
+    width: 30%;
+  }
+  
+  .news h3 {
+    text-align: center;
   }
 }

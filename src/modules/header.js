@@ -21,26 +21,49 @@ class HamburgerNav extends React.Component {
 
 class NavBar extends React.Component {
   constructor(props){
-    super(props);
+    super(props)
 
-    this.state = {};
+    this.state = {
+      home: '',
+      search: '',
+      election: '',
+      about: ''
+    }
+  }
+
+  componentDidMount() {
+    Object.keys(this.state).map(key => {
+      if (this.props.page === key){
+        this.setState({
+          [key] : 'selected'
+        })
+      }
+    })
   }
 
   render () {
     return (
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/search-by-election">Search by Election</Link>
-        </li>
-        <li>
-          <Link to="/search-by-candidate">Search by Candidate</Link>
-        </li>
+      <ul> 
+        <Link to="/" className={this.state.home}>
+          <li >
+            Home
+          </li>
+        </Link>
+        <Link to="/about" className={this.state.about}>
+          <li>
+            About
+          </li>
+        </Link>
+        <Link to="/search-by-election" className={this.state.election}>
+          <li>
+            Search by Election
+          </li>
+        </Link>
+        <Link to="/search-by-candidate" className={this.state.search}>
+          <li>
+            Search by Candidate
+          </li>
+        </Link>
       </ul>
     );
   }
@@ -66,7 +89,7 @@ class Header extends React.Component {
           <HamburgerNav/>
         </nav>
         <nav id="desktop-nav">
-          <NavBar/>
+          <NavBar page={this.props.page}/>
         </nav>
         <div id={this.state.imageID}></div>
       </header>
