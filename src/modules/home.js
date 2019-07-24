@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Header from './header.js';
 
-
 class Home extends React.Component {
   constructor(props){
     super(props);
@@ -13,9 +12,11 @@ class Home extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <Header imageID={'hero-logo'}/>
+        <Header height={'tall'} imageID={'hero-logo'}/>
         <main>
           <section>this section is for information and stuff like that</section>
+          <div id="person-icon"></div>
+          <div id="people-icon"></div>
           <Link to="/search-by-candidate">
             <button>
               This is a Link to candidate

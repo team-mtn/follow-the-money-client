@@ -89,7 +89,7 @@ class CandidateSearch extends React.Component {
 
     return (
       <React.Fragment>
-        <Header imageID={'side-logo'}/>
+        <Header height={'short'} imageID={'side-logo'}/>
         <main className="no-background">
           <section className="section">
             <form onSubmit={this.handleSubmit}>
