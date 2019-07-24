@@ -53,7 +53,9 @@ class Header extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {};
+    this.state = {
+      imageID: this.props.imageID,
+    };
   }
 
   render() {
@@ -65,7 +67,7 @@ class Header extends React.Component {
         <nav id="desktop-nav">
           <NavBar/>
         </nav>
-        <div id="hero-logo"></div>
+        <div id={this.state.imageID}></div>
       </header>
     );
   }

@@ -1,0 +1,52 @@
+.no-background {
+  background-color: transparent;
+  margin-top: -7.5%;
+}
+
+.section {
+  background-color: #fafafa;
+  margin: auto;
+  border-radius: 25px;
+  padding: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 25px;
+}
+
+.section form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.section h1 {
+  font-size: 1.25em;
+}
+
+.section select {
+  font-size: 1.25em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.news {
+  display: flex;
+  align-items: flex-start;
+}
+
+.news h3 {
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: 10px 20px;
+}
+
+.news h4 > span {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.news p {
+  text-align: left;
+  margin: 10px 20px;
+}
+
+.news p > a {
+  color: #6d6d6d;
+}

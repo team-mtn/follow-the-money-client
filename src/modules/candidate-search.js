@@ -2,6 +2,9 @@ import React from 'react';
 import superagent from 'superagent';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from 'victory';
 
+import Header from './header.js';
+import "../css/search.css";
+
 function Candidate(data) {
   this.candidate_id = data.candidate_id;
   this.candidate_name = data.candidate_name;
@@ -85,54 +88,59 @@ class CandidateSearch extends React.Component {
     ));
 
     return (
-      <section>
-        <section>
-          <form onSubmit={this.handleSubmit}>
-            <h1>Search For A Candidate By Name</h1>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option>Select Candidate</option>
-              {optionList}
-            </select>
-          </form>
-        </section>
-        {this.state.value === 'Candidate Name' ? (
-          ''
-        ) : (
-          <section id="wiki" style={{ width: '50%', margin: '2vh auto 2vh auto', backgroundColor: 'white', borderRadius: '10px' }}>
-            <h2>{this.state.value}</h2>
+      <React.Fragment>
+        <Header imageID={'side-logo'}/>
+        <main className="no-background">
+          <section className="section">
+            <form onSubmit={this.handleSubmit}>
+              <h1>Search For A Candidate By Name</h1>
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option>Candidate Name</option>
+                {optionList}
+              </select>
+            </form>
+          </section>
+          {this.state.value === 'Candidate Name' ? (
+            ''
+          ) : (
+            <section className="section">
+              <h2>{this.state.value}</h2>
 
-            {/* <p>{this.state.wiki.data}</p> */}
-          </section>
-        )}
-        {this.state.value === 'Candidate Name' ? (
-          ''
-        ) : (
-          <section style={{ width: '50%', margin: '2vh auto 2vh auto', backgroundColor: 'white', borderRadius: '10px' }}>
-            <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
-              <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
-              <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
-              <VictoryStack colorScale={'red'}>
-                <VictoryBar data={this.state.politicians.filter(v => v.candidate_name === this.state.value)[0].data} x={'range'} y={'earnings'} />
-              </VictoryStack>
-            </VictoryChart>
-          </section>
-        )}
-        {this.state.value === 'Candidate Name' ? (
-          ''
-        ) : (
-          this.state.news.map(article => {
-            return(
-              <section>
-                <img src={article.urlToImage} width={'200px'}/>
-                <h4>Author: {article.author}</h4>
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <p>Read more on <a href={article.url} target="_blank">{article.source}</a></p>
-              </section>
-            )
-          })
-        )}
-      </section>
+              {/* <p>{this.state.wiki.data}</p> */}
+            </section>
+          )}
+          {this.state.value === 'Candidate Name' ? (
+            ''
+          ) : (
+            <section className="section">
+              <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
+                <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
+                <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
+                <VictoryStack colorScale={'cool'}>
+                  <VictoryBar data={this.state.politicians.filter(v => v.candidate_name === this.state.value)[0].data} x={'range'} y={'earnings'} />
+                </VictoryStack>
+              </VictoryChart>
+            </section>
+          )}
+          {this.state.value === 'Candidate Name' ? (
+            ''
+          ) : (
+            this.state.news.map(article => {
+              return(
+                <section className="section news">
+                  <img src={article.urlToImage} width={'200px'}/>
+                  <article>
+                    <h3>{article.title}</h3>
+                    <h4>Author: <span>{article.author}</span></h4>
+                    <p>{article.description} </p>
+                    <p class="right">Read more on <a href={article.url} target="_blank">{article.source}</a></p>
+                  </article>
+                </section>
+              )
+            })
+          )}
+        </main>
+      </React.Fragment>
     );
   }
 }

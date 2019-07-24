@@ -3,7 +3,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: -25%;
+}
+
+.about > section:first-of-type {
+  width: 100%;
+  min-height: 10vh;
 }
 
 .about > section {
@@ -13,6 +17,10 @@
   min-height: 40vh;
   margin: 2% 0%;
 }
+
+/* header {
+  min-height: 35vh;
+} */
 
 @media only screen and (min-width:960px){
   .about {
@@ -24,4 +32,19 @@
     width: 47.5%;
     border-radius: 25px;
   }
+}
+
+
+.no-background {
+  background-color: transparent;
+  margin-top: -7.5%;
+}
+
+.section {
+  background-color: #fafafa;
+  margin: auto;
+  border-radius: 25px;
+  padding: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 25px;
 }
