@@ -84,7 +84,6 @@ Folow the money is a class project designed to show off the coding talents of it
 * [Twitter API](https://developer.twitter.com/en/docs.html)
 * Used Victory for graphics git@github.com:FormidableLabs/victory-tutorial.git
 * Free favicon https://www.freefavicon.com/freefavicons/icons/iconinfo/mountain-15-152-260771.html
-
   
 ### Presentation 
 * link: [Goole Slides](https://docs.google.com/presentation/d/1MTzUekLLu-lNiE6uGtj-5bhf5ZwhWCZ5KMvziouDFjY/edit#slide=id.p)
