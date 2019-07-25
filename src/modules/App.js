@@ -23,7 +23,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Route exact path="/" component={Home} />
           <Route path="/search-by-candidate" component={CandidateSearch} />
-          <Route path="/search-by-election" component={Election} />
+          <Route path="/view-top-candidates" component={Election} />
           <Route path="/about" component={About} />
         </BrowserRouter>
       </div>
