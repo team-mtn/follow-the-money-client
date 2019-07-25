@@ -77,7 +77,7 @@ class Election extends React.Component {
         this.setState({ politicians: temp });
       });
     superagent
-      .get(`http://localhost:8000/twitter`)
+      .get(`https://follow-the-money-server.herokuapp.com/twitter`)
       .query()
       .then(res => {
         let temp = [];
