@@ -14,7 +14,6 @@ class Home extends React.Component {
       <React.Fragment>
         <Header height={"tall"} imageID={"hero-logo"} page={"home"}/>
         <main>
-          <section className="intro">this section is for information and stuff like that</section>
           <div id="person-icon"></div>
           <div id="people-icon"></div>
           <Link to="/search-by-candidate">
