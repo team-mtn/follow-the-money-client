@@ -22,7 +22,7 @@ class Home extends React.Component {
               Search by Candidate
             </button>
           </Link>
-          <Link to="/search-by-election">
+          <Link to="/view-top-candidates">
             <button>
               View Top Candidates
             </button>

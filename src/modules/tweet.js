@@ -3,7 +3,7 @@ import React from "react";
 
 function Tweet(props) {
   return (
-    <article>
+    <article key={props.key} index={props.index}>
       <img src={props.image} alt="profile"/>
       <div>
         <h2>{props.name}</h2>

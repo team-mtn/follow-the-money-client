@@ -25,10 +25,13 @@ function NewsArticle(news) {
 }
 
 function Twitter(tweet) {
-  this.urlToImage = tweet.url;
-  this.name = tweet.name;
-  this.created_at = tweet.created_at;
-  this.text = tweet.text;
+  this.created_at = tweet[0];
+  this.text = tweet[1];
+  this.name = tweet[2];
+  this.screenName = tweet[3];
+  this.description = tweet[4];
+  this.userUrl = tweet[5];
+  this.imageUrl = tweet[6];
 }
 
 class CandidateSearch extends React.Component {
@@ -58,10 +61,13 @@ class CandidateSearch extends React.Component {
       ],
       twitter: [
         {
-          urlToImage: 'placeholder',
-          name: 'placeholder',
           created_at: 'placeholder',
-          text: 'placeholder'
+          text: 'placeholder',
+          name: 'placeholder',
+          screenName: 'placeholder',
+          description: 'placeholder',
+          userUrl: 'placeholder',
+          imageUrl: 'placeholder',
         }
       ]
     };
@@ -95,16 +101,17 @@ class CandidateSearch extends React.Component {
         });
         this.setState({ news: temp });
       });
-    // superagent
-    //   .get(``)
-    //   .query({name: "stuff"})
-    //   .then(res => {
-    //     let temp = [];
-    //     res.body.map(tweet => {
-    //       temp.push(new Twitter(tweet));
-    //     })
-    //     this.setState({twitter: temp});
-    //   });
+    superagent
+      .get(`http://localhost:8000/twitter`)
+      .query()
+      .then(res => {
+        let temp = [];
+        res.body.map(tweet => {
+          temp.push(new Twitter(tweet));
+        })
+        temp.length = 10;
+        this.setState({twitter: temp});
+      });
   };
 
   render() {
@@ -147,8 +154,11 @@ class CandidateSearch extends React.Component {
               ''
             ) : (
               <section className="section chart">
+                <h1>Funds Raised</h1>
+                <p>Individual contributions broken into categories based on dollar amount donated.</p>
+                <p> Each bar shows the total amount of funds raised from the respective donation category.</p>
                 <VictoryChart padding={(0, 0, 0, 60)} height={250} theme={VictoryTheme.material}>
-                  <VictoryAxis tickValues={['0', '200', '500', '1k', '2k']} />
+                  <VictoryAxis tickValues={['$0-200', '$200-500', '$500-1k', '$1k-2k', '$2k+']} />
                   <VictoryAxis dependentAxis tickFormat={x => `$${x / 1000}k`} />
                   <VictoryStack colorScale={'cool'}>
                     <VictoryBar data={this.state.politicians.filter(v => v.candidate_name === this.state.value)[0].data} x={'range'} y={'earnings'} />
@@ -184,8 +194,9 @@ class CandidateSearch extends React.Component {
             ''
           ) : (
             <aside>
+              <h1>Twitter Feed</h1>
               {this.state.twitter.map((tweet, i) => (
-                <Tweet key={i} index={i} image={'sample image'} name={'sample name'} created_at={'sample created'} text={'sample tweet about stuff and all the #coolstufflikethat'} />
+                <Tweet key={i} index={i} image={tweet.imageUrl} name={tweet.name} created_at={tweet.created_at} text={tweet.text} />
               ))}
             </aside>
           )}

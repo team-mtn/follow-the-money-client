@@ -16,7 +16,7 @@ class HamburgerNav extends React.Component {
         <a id="about" className="menu-item" href="/search-by-candidate">
           Search By Candidate
         </a>
-        <a id="contact" className="menu-item" href="/search-by-election">
+        <a id="contact" className="menu-item" href="/view-top-candidates">
           View Top Candidates
         </a>
         <a id="contact" className="menu-item" href="/about">
@@ -58,7 +58,7 @@ class NavBar extends React.Component {
         <Link to="/about" className={this.state.about}>
           <li>About Us</li>
         </Link>
-        <Link to="/search-by-election" className={this.state.election}>
+        <Link to="/view-top-candidates" className={this.state.election}>
           <li>View Top Candidates</li>
         </Link>
         <Link to="/search-by-candidate" className={this.state.search}>
